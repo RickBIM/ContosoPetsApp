@@ -256,11 +256,85 @@ do
             readResult = Console.ReadLine();
             break;
 
+
         case "3":
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    if (ourAnimals[i, 2] == "Age: " || ourAnimals[i, 2] == "Age: ?")
+                    {
+                        Console.WriteLine($"Please, set the pet {ourAnimals[i, 0]} age.");
+                        bool validEntry = false;
+                        do
+                        {
+                            try
+                            {
+                                int entry = Convert.ToInt16(Console.ReadLine());
+                                ourAnimals[i, 2] = $"Age: {entry}";
+                                validEntry = true;
+                            }
+                            catch { }
+
+                        } while (validEntry == false);
+                    }
+                    if (ourAnimals[i, 4] == "Physical description: ")
+                    {
+                        Console.WriteLine($"Please, set the pet {ourAnimals[i, 0]} physical description.");
+                        bool validEntry = false;
+                        do
+                        {
+                            var entry = Console.ReadLine();
+                            if (entry != "" && entry != null)
+                            {
+                                ourAnimals[i, 4] = $"Physical description: {entry}";
+                                validEntry = true;
+
+                            }
+                        } while (validEntry == false);
+                    }
+                }
+            }
+            Console.WriteLine("Age and physical description fields are complete for all of our friends. ");
+            Console.ReadLine();
+            break;
         case "4":
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
-            Console.WriteLine("Press the Enter key to continue.");
-            readResult = Console.ReadLine();
+            for (int i = 0; i < maxPets; i++)
+            {
+                if (ourAnimals[i, 0] != "ID #: ")
+                {
+                    if (ourAnimals[i, 3] == "Nickname: ")
+                    {
+                        Console.WriteLine($"Please, set the pet {ourAnimals[i, 0]} nickname.");
+                        bool validEntry = false;
+                        do
+                        {
+                            var entry = Console.ReadLine();
+                            if (entry != "" && entry != null)
+                            {
+                                ourAnimals[i, 3] = $"Nickname: {entry}";
+                                validEntry = true;
+                            }
+                        } while (validEntry == false);
+                    }
+                    if (ourAnimals[i, 5] == "Personality: ")
+                    {
+                        Console.WriteLine($"Please, set the pet {ourAnimals[i, 0]} personality.");
+                        bool validEntry = false;
+                        do
+                        {
+                            var entry = Console.ReadLine();
+                            if (entry != "" && entry != null)
+                            {
+                                ourAnimals[i, 5] = $"Personality: {entry}";
+                                validEntry = true;
+                            }
+                        } while (validEntry == false);
+                    }
+                }
+            }
+            Console.WriteLine("Age and physical description fields are complete for all of our friends. ");
+            Console.ReadLine();
             break;
         case "5":
         case "6":
